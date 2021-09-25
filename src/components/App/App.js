@@ -1,23 +1,24 @@
-import logo from '../../images/logo.svg';
+import React, { useState } from 'react';
+import { Route, Switch } from 'react-router';
 import './App.css';
+import Header from '../Header/Header';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  if (1 === 0) {
+    setIsLoggedIn(true);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header isLoggedIn={isLoggedIn}/>
+      <Switch>
+        <Route exact path='/'>
+          <Main />
+        </Route>
+      </Switch>
+      <Footer/>
     </div>
   );
 }
