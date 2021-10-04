@@ -2,12 +2,12 @@ import './Info.css';
 import NavTab from '../NavTab/NavTab';
 
 const Info = () => (
-    <div className="info">
+    <section className="info">
       <div className="info__container">
         <h1 className="info__title">Учебный проект студента факультета Веб-разработки.</h1>
         <NavTab />
       </div>
-    </div>
+    </section>
 );
 
 export default Info;

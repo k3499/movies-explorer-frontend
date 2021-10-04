@@ -1,7 +1,7 @@
 import './AboutProject.css';
 
 const AboutProject = () => (
-  <div className="aboutProject">
+  <section className="aboutProject" id="project">
     <div className="aboutProject__container">
       <h2 className="aboutProject__title">О проекте</h2>
       <div className="aboutProject__infoContainer">
@@ -27,7 +27,7 @@ const AboutProject = () => (
           </div>
         </div>
     </div>
-  </div>
+  </section>
 );
 
 export default AboutProject;

@@ -1,24 +1,43 @@
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
-import accountImg from '../../images/account.svg';
 
-const Header = ({ isLoggedIn }) => (
-    <header className={`header ${isLoggedIn && 'header_logged-in'}`}>
+const Header = ({
+  pathname,
+  isLoggedIn,
+  onLogoClick,
+  onLoginClick,
+  onRegisterClick,
+  handleMenuOpen, handleOnMainClick, handleOnMoviesClick, handleOnAccountClick,
+}) => {
+  const headerClassName = (
+    `header
+      ${(pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile') && 'header_logged-in'}
+      ${(pathname === '/signin' || pathname === '/signup') && 'header_invisible'}
+      `
+  );
+  return (
+    <header className={headerClassName}>
       <div className="header__container">
-        <NavLink to="/" className="header__logo" />
-        {isLoggedIn && <Navigation />}
-        <nav className="header__account">
-          {isLoggedIn
-          && <NavLink to="/profile" className="header__link header__link_to-profile">
-            Аккаунт
-            <img className="header__account-img" src={accountImg} alt="Аккаунт" />
-          </NavLink>}
-          {!isLoggedIn && <NavLink to="/signup" className="header__link header__link_to-register">Регистрация</NavLink>}
-          {!isLoggedIn && <NavLink to="/signin" className="header__link header__link_to-login">Войти</NavLink>}
-        </nav>
+        <NavLink to="/" className="header__logo" onClick={onLogoClick} />
+        {
+          !isLoggedIn && pathname === '/'
+            ? <nav className="header__options">
+              <NavLink to="/signup" className="header__link header__option_to-register"
+                onClick={onRegisterClick}>Регистрация</NavLink>
+              <NavLink to="/signin" className="header__link header__link_to-login"
+                onClick={onLoginClick}>Войти</NavLink>
+              </nav>
+            : <div className="header__nav">
+                <Navigation handleOnMainClick={handleOnMainClick}
+                handleOnMoviesClick={handleOnMoviesClick}
+                handleOnAccountClick={handleOnAccountClick} />
+              </div>
+        }
+        {isLoggedIn && <button className="header__menu-btn" type="button" onClick={handleMenuOpen}></button>}
       </div>
     </header>
-);
+  );
+};
 
 export default Header;

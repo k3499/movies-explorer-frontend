@@ -1,7 +1,7 @@
 import './AboutTechs.css';
 
 const AboutTechs = () => (
-  <div className="aboutTechs">
+  <section className="aboutTechs" id="tech">
     <div className="aboutTechs__container">
       <h2 className="aboutTechs__title">Технологии</h2>
       <h3 className="aboutTechs__titleNum">7 технологий</h3>
@@ -17,7 +17,7 @@ const AboutTechs = () => (
         <li className="aboutTechs__listElement">MongoDB</li>
       </ul>
     </div>
-  </div>
+  </section>
 );
 
 export default AboutTechs;

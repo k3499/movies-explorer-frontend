@@ -1,0 +1,21 @@
+.movies-list{
+  display: grid;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1140px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 28px;
+  column-gap: 28px;
+  grid-row-gap: 32px;
+  row-gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 70px 0 10px;
+  box-sizing: border-box;
+  grid-template-rows: auto-fit;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .movies-list{
+    padding: 88px 0 10px;
+  }
+}
