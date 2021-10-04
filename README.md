@@ -16,4 +16,4 @@ Movie Explorer - заключительная работа на курсе Ян�
 
 
 
-API - [https://api.moviesearch.nomoredomains.club/](https://api.moviesearch.nomoredomains.club/ "https://api.moviesearch.nomoredomains.club/")
+Ссылка на проект - [https://moviesearch.nomoredomains.club/](https://moviesearch.nomoredomains.club/ "https://moviesearch.nomoredomains.club/")
