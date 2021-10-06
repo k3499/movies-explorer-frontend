@@ -1,0 +1,23 @@
+/* Normalize.css */
+@import url('./vendor/normalize.css');
+/* Fonts */
+@import url('./vendor/fonts/fonts.css');
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+#root {
+  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+/* * {
+  outline: 1px solid red;
+} */

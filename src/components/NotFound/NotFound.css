@@ -1,0 +1,53 @@
+.not-found{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 70px;
+  box-sizing: border-box;
+  text-align: center;
+  height: 100vh;
+  position: relative;
+}
+.not-found__container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.not-found__title{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 140px;
+  line-height: 169px;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+}
+.not-found__text{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #000000;
+  margin-top: 40px;
+}
+.not-found__link{
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #2BE080;
+  text-decoration: none;
+  transition: opacity 0.6s linear;
+}
+.not-found__link:hover {
+  opacity: 0.7;
+}
