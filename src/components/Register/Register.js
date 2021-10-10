@@ -1,13 +1,13 @@
 import AuthForm from '../AuthForm/AuthForm';
 import './Register.css';
+import { registerType } from '../../utils/constants';
 
 const Register = ({
-  onLogoClick,
   onRegister,
 }) => (
   <section className="register">
     <AuthForm
-      onLogoClick={onLogoClick}
+      type={registerType}
       welcome="Добро пожаловать!"
       isNameVisible={true}
       button="Зарегистрироваться"

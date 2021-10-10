@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 
-const Navigation = ({
-  handleOnMainClick, handleOnMoviesClick,
-}) => {
+const Navigation = ({ handleOnSavedMoviesClick }) => {
   const [isMoviesClicked, setIsMoviesClicked] = useState(true);
   const [isSavedMoviesClicked, setIsSavedMoviesClicked] = useState(false);
   const [isMainClicked, setIsMainClicked] = useState(false);
@@ -12,19 +10,17 @@ const Navigation = ({
   const handleMoviesClick = () => {
     setIsMoviesClicked(true);
     setIsSavedMoviesClicked(false);
-    handleOnMoviesClick();
     setIsMainClicked(false);
   };
 
   const handleSavedMoviesClick = () => {
     setIsSavedMoviesClicked(true);
     setIsMoviesClicked(false);
-    handleOnMoviesClick();
+    handleOnSavedMoviesClick();
     setIsMainClicked(false);
   };
 
   const handleMainClicked = () => {
-    handleOnMainClick();
     setIsMainClicked(true);
     setIsSavedMoviesClicked(false);
     setIsMoviesClicked(false);

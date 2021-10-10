@@ -1,20 +1,31 @@
 import { useState } from 'react';
-import { movieInput } from '../../utils/constants';
+import { movieInput, shortFilmCheck } from '../../utils/constants';
 import './SearchForm.css';
 
-const SearchForm = () => {
+const SearchForm = ({
+  handleSearchSubmit, handleTumblerClick,
+}) => {
   const [movie, setMovie] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    handleSearchSubmit(movie, isChecked);
   };
 
   // запись значения инпутов при вводе
   const handleInputChange = (e) => {
-    if (e.target.name === movieInput) {
-      setMovie(e.target.value);
-    } else {
-      console.log(`Нет инпута: ${e.target.name}`);
+    switch (e.target.name) {
+      case movieInput: setMovie(e.target.value);
+        break;
+      case shortFilmCheck: {
+        setIsChecked(e.target.checked);
+        handleTumblerClick(e.target.checked, movie);
+        break;
+      }
+      default:
+        console.log(`Нет такого инпута: ${e.target.name}`);
+        break;
     }
   };
 
@@ -29,7 +40,8 @@ const SearchForm = () => {
       </form>
       <div className="search__tumbler-container">
           <label className="search__tumbler">
-            <input type="checkbox" className="search__checkbox"></input>
+          <input type="checkbox" name="shortFilmCheckbox" className="search__checkbox"
+          checked={isChecked} onChange={handleInputChange}></input>
             <span className="search__slider"></span>
           </label>
 

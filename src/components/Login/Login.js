@@ -1,13 +1,13 @@
 import AuthForm from '../AuthForm/AuthForm';
+import { loginType } from '../../utils/constants';
 import './Login.css';
 
 const Login = ({
-  onLogoClick,
   onLogin,
 }) => (
   <section className="login">
     <AuthForm
-      onLogoClick={onLogoClick}
+      type={loginType}
       welcome="Рады видеть!"
       isNameVisible={false}
       button="Войти"

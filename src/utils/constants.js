@@ -2,6 +2,11 @@ const emailInput = 'emailInput';
 const passwordInput = 'passwordInput';
 const nameInput = 'nameInput';
 const movieInput = 'movieInput';
+const shortFilmCheck = 'shortFilmCheckbox';
+const loginType = 'login';
+const registerType = 'register';
+const defPr = 'default';
+const movieSearchFailedMessage = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
 
 const validationConfig = {
   inputSelector: '.auth__input',
@@ -21,6 +26,10 @@ const validationConfigForProfile = {
   errorSelector: '.profile__input-error',
 };
 
+const registerSuccessMessage = 'Вы успешно зарегистрированы';
+const failMessage = 'Произошла ошибка';
+const updateSuccessMessage = 'Данные обновлены';
+
 export {
   emailInput,
   passwordInput,
@@ -28,4 +37,12 @@ export {
   movieInput,
   validationConfig,
   validationConfigForProfile,
+  shortFilmCheck,
+  registerSuccessMessage,
+  failMessage,
+  updateSuccessMessage,
+  loginType,
+  registerType,
+  movieSearchFailedMessage,
+  defPr,
 };

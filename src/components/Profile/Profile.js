@@ -1,14 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useContext,
+} from 'react';
 import { NavLink } from 'react-router-dom';
 import { emailInput, nameInput } from '../../utils/constants';
 import { validateProfileForm } from '../../utils/utils';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './Profile.css';
 
 const Profile = ({
-  userName,
   handleLogout,
   handleSubmit,
 }) => {
+  const currentUser = useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const formRef = useRef();
@@ -35,12 +41,12 @@ const Profile = ({
     if (!email || !name) {
       return;
     }
-    handleSubmit();
+    handleSubmit(email, name);
   };
   return (
     <section className="profile">
       <form className="profile__form" method="POST" onSubmit={onSubmit} ref={formRef}>
-        <h3 className="profile_title">Привет, {userName}!</h3>
+        <h3 className="profile_title">Привет, {currentUser.name}!</h3>
         <div className="profile__formContainer">
           <label for="profile__name" className="profile__label">Имя</label>
           <input placeholder="Имя" id="name-input" className="profile__input profile__input_type_name" name="nameInput"
