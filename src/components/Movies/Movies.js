@@ -21,7 +21,7 @@ const Movies = ({
   return (
     <section className="movies">
       <SearchForm handleSearchSubmit={handleSearchSubmit} handleTumblerClick={handleTumblerClick}/>
-      <MoviesList moviesList={movies}
+      <MoviesList movieList={movies}
        isOnSavedPage={false}
        saveMovie={saveMovie}
        deleteMovie={deleteMovie}

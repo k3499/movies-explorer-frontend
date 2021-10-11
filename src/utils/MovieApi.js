@@ -1,4 +1,4 @@
-export const BASE_URL_MOVIE = 'https://api.nomoreparties.co/beatfilm-movies';
+export const BASE_URL_MOVIE = 'https://api.nomoreparties.co';
 
 class MovieApi {
   constructor(options) {
@@ -13,7 +13,7 @@ class MovieApi {
   };
 
   getBeatFilmMovies() {
-    return fetch(`${this.baseUrl}`, {
+    return fetch(`${this.baseUrl}/beatfilm-movies`, {
       headers: {
         'Content-Type': 'application/json',
       },

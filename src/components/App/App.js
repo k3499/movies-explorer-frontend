@@ -70,8 +70,8 @@ function App() {
   const checkWidth = () => {
     if (window.innerWidth >= 1280) {
       console.log('ksjdkjs');
-      setDefaultAmountToRender(4);
-      setAmountToRender(4);
+      setDefaultAmountToRender(3);
+      setAmountToRender(3);
     }
     if (window.innerWidth <= 480 && window.innerWidth >= 320) {
       console.log('aww');
@@ -79,12 +79,12 @@ function App() {
       setAmountToRender(1);
     }
     if (window.innerWidth < 1280 && window.innerWidth >= 1024) {
-      setDefaultAmountToRender(3);
-      setAmountToRender(3);
-    }
-    if (window.innerWidth <= 768 && window.innerWidth > 480) {
       setDefaultAmountToRender(2);
       setAmountToRender(2);
+    }
+    if (window.innerWidth <= 768 && window.innerWidth > 480) {
+      setDefaultAmountToRender(1);
+      setAmountToRender(1);
     }
   };
 
@@ -118,6 +118,7 @@ function App() {
 
   // добавление в найденые фильмы инфы о сохранении
   const updateMovies = (movies) => {
+    console.log('yes');
     const moviesWithSavedOnes = movies.map((movie) => {
       const savedItem = savedMovies.find((m) => m.movieId === movie.id);
       if (savedItem) {
@@ -145,7 +146,6 @@ function App() {
             reject(err);
           });
       } else {
-        console.log('1');
         resolve(searchMovies(beatfilmMovies, query, isShortFilm));
       }
     })
@@ -167,14 +167,16 @@ function App() {
   };
   // обработка поискового запроса
   const handleSearchInMovies = (query, isShortFilm) => {
-    setAmountToRender(defaultAmountToRender);
+    // setAmountToRender(defaultAmountToRender);
     searchPromise(query, isShortFilm)
       .then((res) => {
         if (res && res.length > 0) {
           setIsFoundInMovies(true);
+          console.log('yes');
           localStorage.setItem('movies', JSON.stringify(res));
           checkWidth();
           updateMovies(res);
+          console.log(res.length, amountToRender, res.length > amountToRender);
           setIsMoreBtnVisible(res.length > amountToRender);
         } else {
           setIsMoreBtnVisible(false);
@@ -312,6 +314,7 @@ function App() {
       updateMovies(localMovies);
       setAmountToRender(defaultAmountToRender);
       if (localMovies.length - defaultAmountToRender === 0) {
+        setIsFoundInMovies(false);
         setIsMoreBtnVisible(false);
       } else {
         setIsMoreBtnVisible(true);

@@ -15,9 +15,10 @@ const MoviesList = ({
     `movies-list
     ${!isRequestDone && 'movies-list_hidden'}`
   );
-  // console.log(amountToRender);
-  // console.log(isFound);
-  // console.log(movieList);
+
+  console.log(amountToRender);
+  console.log(isFound);
+  console.log(movieList);
   return <ul className={movieslistClassName}>
     {
       isFound ? movieList.slice(0, amountToRender).map((movie) => (

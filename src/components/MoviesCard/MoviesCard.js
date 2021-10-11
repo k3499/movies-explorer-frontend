@@ -14,7 +14,8 @@ const MoviesCard = ({
 }) => {
   const currentUser = useContext(CurrentUserContext);
   const isSaved = movie.owner && movie.owner === currentUser._id;
-
+  console.log(movie);
+  console.log(nameRU);
   const handleSaveBtnClick = () => {
     if (isSaved) {
       deleteMovie(movie._id, movie);
@@ -44,7 +45,7 @@ const MoviesCard = ({
         isOnSavedPage
           ? <button type="button" className="movies-card__button movies-card__button_type_delete"
           aria-label="Удалить фильм." onClick={handleDeleteBtnClick}></button>
-          : <button type="button" className={saveButtonClassName} onClick={handleSaveBtnClick} aria-label="Сохранить фильм."></button>
+          : <button type="button" className={saveButtonClassName} onClick={handleSaveBtnClick} aria-label="Сохранить фильм.">Сохранить</button>
       }
     </li>
   );
