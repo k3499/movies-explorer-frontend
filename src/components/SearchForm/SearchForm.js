@@ -1,47 +1,46 @@
 import { useState } from 'react';
-import { movieInput, shortFilmCheck } from '../../utils/constants';
+import { useFormWithValidation } from '../../utils/useFormWithValidation';
 import './SearchForm.css';
 
 const SearchForm = ({
   handleSearchSubmit, handleTumblerClick,
 }) => {
-  const [movie, setMovie] = useState('');
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    isDisabled,
+  } = useFormWithValidation({});
   const [isChecked, setIsChecked] = useState(false);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleSearchSubmit(movie, isChecked);
+    if (isValid) {
+      handleSearchSubmit(values.movie, isChecked);
+    }
   };
 
   // запись значения инпутов при вводе
-  const handleInputChange = (e) => {
-    switch (e.target.name) {
-      case movieInput: setMovie(e.target.value);
-        break;
-      case shortFilmCheck: {
-        setIsChecked(e.target.checked);
-        handleTumblerClick(e.target.checked, movie);
-        break;
-      }
-      default:
-        console.log(`Нет такого инпута: ${e.target.name}`);
-        break;
-    }
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+    handleTumblerClick(e.target.checked, values.movie);
   };
 
   return (
     <div className="search">
-      <form className="search__form" onSubmit={handleSubmit}>
+      <form className="search__form" onSubmit={handleSubmit} noValidate>
         <div className="search__container">
-          <input className="search__input" placeholder="Фильм" required value={movie}
-          onChange={handleInputChange} name="movieInput"></input>
-          <button type="submit" className="search__button">Поиск</button>
+          <input className={`search__input ${errors && errors.movie && 'search__input_type_error'}`}
+          placeholder="Фильм" required onChange={handleChange} disabled={isDisabled} name="movie" type="text"
+          pattern="^[а-яА-Яa-zA-Z\d\s\-]+$"></input>
+          <button type="submit" className="search__button" disabled={!isValid}>Поиск</button>
         </div>
       </form>
       <div className="search__tumbler-container">
           <label className="search__tumbler">
           <input type="checkbox" name="shortFilmCheckbox" className="search__checkbox"
-          checked={isChecked} onChange={handleInputChange}></input>
+          checked={isChecked} onChange={handleCheckboxChange} disabled={isDisabled}></input>
             <span className="search__slider"></span>
           </label>
 

@@ -88,7 +88,7 @@
 .auth__input_type_error{
   color: #EE3465;
 }
-.auth__submit-btn_disabled{
+.auth__submit-btn:disabled{
   opacity: 0.5;
   cursor: not-allowed;
 }

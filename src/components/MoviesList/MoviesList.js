@@ -1,5 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import Preloader from '../Preloader/Preloader';
 import './MoviesList.css';
 
 const MoviesList = ({
@@ -9,24 +9,26 @@ const MoviesList = ({
   deleteMovie,
   isFound,
   isRequestDone,
-  amountToRender,
+  renderCount,
+  isLoading,
 }) => {
   const movieslistClassName = (
     `movies-list
     ${!isRequestDone && 'movies-list_hidden'}`
   );
 
-  console.log(amountToRender);
-  console.log(isFound);
-  console.log(movieList);
-  return <ul className={movieslistClassName}>
+  return <>
+  {isLoading && <Preloader />}
+  <ul className={movieslistClassName}>
+    {/* {isLoading && <Preloader />} */}
     {
-      isFound ? movieList.slice(0, amountToRender).map((movie) => (
-        <MoviesCard key={uuidv4()} movie={movie} image={movie.image}
+      isFound ? movieList.slice(0, renderCount).map((movie) => (
+         <MoviesCard key={movie.nameRU} movie={movie} image={movie.image}
           nameRU={movie.nameRU} duration={movie.duration} isOnSavedPage={isOnSavedPage}
           saveMovie={saveMovie} deleteMovie={deleteMovie} />
       )) : <li className="movies-list__not-found-text">Ничего не найдено</li>
     }
-  </ul>;
+  </ul>
+</>;
 };
 export default MoviesList;

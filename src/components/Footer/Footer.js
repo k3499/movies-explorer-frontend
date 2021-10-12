@@ -3,7 +3,7 @@ import './Footer.css';
 const Footer = ({ pathname }) => {
   const footerClassName = (
     `footer
-    ${(pathname === '/signin' || pathname === '/signup') && 'footer_invisible'}`
+    ${(pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile') && 'footer_visible'}`
   );
   return (
     <footer className={footerClassName}>
@@ -16,10 +16,10 @@ const Footer = ({ pathname }) => {
               <a className="footer__link" href="https://praktikum.yandex.ru/" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
             </li>
             <li className="footer__item">
-              <a className="footer__link" href="https://github.com/kozhevatova" target="_blank" rel="noreferrer">Github</a>
+              <a className="footer__link" href="https://github.com/k3499" target="_blank" rel="noreferrer">Github</a>
             </li>
             <li className="footer__item">
-              <a className="footer__link" href="https://www.facebook.com/anna.kozhevatova/" target="_blank" rel="noreferrer">Facebook</a>
+              <a className="footer__link" href="https://www.facebook.com/profile.php?id=100001348617211" target="_blank" rel="noreferrer">Facebook</a>
             </li>
           </ul>
         </div>

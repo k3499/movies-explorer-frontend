@@ -10,24 +10,29 @@ const Movies = ({
   deleteMovie,
   isFound,
   isRequestDone,
-  amountToRender,
+  renderCount,
   handleMoreBtnClick,
   isMoreBtnVisible,
+  isLoading,
+  isDisabled,
 }) => {
   const onMoreBtnClick = () => {
-    handleMoreBtnClick(amountToRender);
+    handleMoreBtnClick(renderCount);
   };
 
   return (
     <section className="movies">
-      <SearchForm handleSearchSubmit={handleSearchSubmit} handleTumblerClick={handleTumblerClick}/>
+      <SearchForm handleSearchSubmit={handleSearchSubmit}
+      handleTumblerClick={handleTumblerClick}
+      isDisabled={isDisabled} />
       <MoviesList movieList={movies}
        isOnSavedPage={false}
        saveMovie={saveMovie}
        deleteMovie={deleteMovie}
        isFound={isFound}
        isRequestDone={isRequestDone}
-       amountToRender={amountToRender} />
+       renderCount={renderCount}
+       isLoading={isLoading} />
       {isMoreBtnVisible && <button className="movies__more" type="button" onClick={onMoreBtnClick}>Ещё</button>}
     </section>
   );

@@ -12,7 +12,7 @@ const Header = ({
   const headerClassName = (
     `header
       ${(pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile') && 'header_logged-in'}
-      ${(pathname === '/signin' || pathname === '/signup') && 'header_invisible'}
+      ${pathname === '/' && 'header_visible'}
       `
   );
   return (
@@ -21,9 +21,9 @@ const Header = ({
         <NavLink to="/" className="header__logo" />
         {
           !isLoggedIn && pathname === '/'
-            ? <nav className="header__options">
-              <NavLink to="/signup" className="header__link header__option_to-register">Регистрация</NavLink>
-              <NavLink to="/signin" className="header__link header__option_to-login">Войти</NavLink>
+            ? <nav className="header__links">
+              <NavLink to="/signup" className="header__link header__link_to-register">Регистрация</NavLink>
+              <NavLink to="/signin" className="header__link header__link_to-login">Войти</NavLink>
               </nav>
             : <div className="header__nav">
                 <Navigation

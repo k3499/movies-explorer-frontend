@@ -6,8 +6,9 @@ const Menu = ({
   isOpen,
   handleOnSavedMoviesClick,
   handleOnMoviesClick,
+  onClick,
 }) => (
-    <section className={`menu ${isOpen && 'menu_opened'}`}>
+    <section className={`menu ${isOpen && 'menu_opened'}`} onClick={onClick}>
       <div className="menu__area">
         <button className="menu__close-btn" onClick={handleMenuClose}></button>
         <Navigation

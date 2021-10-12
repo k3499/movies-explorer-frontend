@@ -1,13 +1,12 @@
 import AuthForm from '../AuthForm/AuthForm';
 import './Register.css';
-import { registerType } from '../../utils/constants';
 
 const Register = ({
   onRegister,
+  isDisabled,
 }) => (
   <section className="register">
     <AuthForm
-      type={registerType}
       welcome="Добро пожаловать!"
       isNameVisible={true}
       button="Зарегистрироваться"
@@ -15,6 +14,7 @@ const Register = ({
       caption="Уже зарегистрированы? "
       route="/signin"
       navLink="Войти"
+      isDisabled={isDisabled}
     />
   </section>
 );

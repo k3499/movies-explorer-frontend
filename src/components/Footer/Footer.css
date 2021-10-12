@@ -1,6 +1,7 @@
 .footer {
   padding: 80px 0 0 0;
   background-color: #FAFAFA;
+  display: none;
 }
 .footer__container {
   margin: 0 auto;
@@ -55,6 +56,9 @@
 }
 .footer_invisible {
   display: none;
+}
+.footer_visible {
+  display: block;
 }
 .footer__link{
   transition: opacity 0.5s linear;

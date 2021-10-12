@@ -80,6 +80,7 @@ input.profile__input::placeholder{
   color: #EE3465;
   text-align: left;
 }
-.profile__button_disabled{
+.profile__button:disabled{
   cursor: not-allowed;
+  opacity: 0.2;
 }

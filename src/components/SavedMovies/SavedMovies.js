@@ -10,6 +10,7 @@ const SavedMovies = ({
   deleteMovie,
   isFound,
   isRequestDone,
+  isDisabled,
 }) => (
     <section className="saved-movies">
       <SearchForm handleSearchSubmit={handleSearchSubmit} handleTumblerClick={handleTumblerClick} />
@@ -19,7 +20,8 @@ const SavedMovies = ({
         saveMovie={saveMovie}
         deleteMovie={deleteMovie}
         isFound={isFound}
-        isRequestDone={isRequestDone} />
+        isRequestDone={isRequestDone}
+        isDisabled={isDisabled} />
 
     </section>
 );

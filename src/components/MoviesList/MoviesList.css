@@ -1,9 +1,9 @@
 .movies-list{
   display: grid;
-  justify-content: flex-start;
+  justify-content: space-around;
   width: 100%;
   max-width: 1140px;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
   grid-template-rows: repeat(auto-fit, minmax(314px, 1fr));
   grid-column-gap: 28px;
   column-gap: 28px;
