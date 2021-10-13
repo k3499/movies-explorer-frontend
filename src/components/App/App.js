@@ -149,6 +149,7 @@ function App() {
 
   // Поиск по ключевым словам
   const searchPromise = (query) => (
+
     new Promise((resolve, reject) => {
       if (beatfilmMovies.length === 0) {
         movieApi.getBeatFilmMovies()
@@ -186,12 +187,15 @@ function App() {
     setIsLoading(true);
     searchPromise(query)
       .then((res) => {
+        console.log(res);
         if (res && res.length > 0) {
           setIsFoundInMovies(true);
           console.log('yes');
           localStorage.setItem('movies', JSON.stringify(res));
           updateMovies(res, isShortFilm);
         } else {
+          console.log(res);
+          console.log('no');
           localStorage.removeItem('movies');
           setIsFoundInMovies(false);
           setIsMoreBtnVisible(false);
