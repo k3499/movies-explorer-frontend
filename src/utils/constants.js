@@ -1,5 +1,6 @@
 const shortFilmCheck = 'shortFilmCheckbox';
 
+const shortMoviesDuration = 40;
 const registerSuccessMessage = 'Вы успешно зарегистрированы!';
 const failMessage = 'Произошла ошибка! Попробуйте ещё раз.';
 const updateSuccessMessage = 'Данные успешно обновлены!';
@@ -13,6 +14,9 @@ const Headers = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
 };
+const max1920 = 3;
+const max1024 = 2;
+const max480 = 1;
 
 export {
   shortFilmCheck,
@@ -26,4 +30,8 @@ export {
   BASE_URL_MOVIE,
   BASE_URL,
   Headers,
+  shortMoviesDuration,
+  max480,
+  max1024,
+  max1920,
 };

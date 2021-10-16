@@ -30,6 +30,7 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .movies-list{
     padding: 88px 0 10px;
+    justify-content: center;
   }
   .movies-list__not-found-text {
     font-size: 30px;
@@ -42,5 +43,8 @@
     font-size: 20px;
     margin: 50px 0;
     grid-column: 1;
+  }
+  .movies-list{
+    justify-content: center;
   }
 }

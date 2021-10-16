@@ -26,6 +26,9 @@ import {
   movieSearchFailedMessage,
   updateSuccessMessage,
   loginErrorMessage,
+  max480,
+  max1024,
+  max1920,
 } from '../../utils/constants';
 
 function App() {
@@ -77,23 +80,23 @@ function App() {
   // проверка ширины экрана и выставление колиства карточек
   const checkWidth = () => {
     let renderValue = 0;
-    if (window.innerWidth >= 1280) {
+    if (window.innerWidth >= max1920) {
       setDefaultRenderCount(3);
       setRenderCount(12);
       renderValue = 12;
     }
     if (window.innerWidth >= 1024 && window.innerWidth < 1279) {
-      setDefaultRenderCount(3);
+      setDefaultRenderCount(max1024);
       setRenderCount(8);
       renderValue = 8;
     }
     if (window.innerWidth < 1024 && window.innerWidth > 480) {
-      setDefaultRenderCount(2);
+      setDefaultRenderCount(max1024);
       setRenderCount(8);
       renderValue = 8;
     }
     if (window.innerWidth <= 480 && window.innerWidth >= 320) {
-      setDefaultRenderCount(1);
+      setDefaultRenderCount(max480);
       setRenderCount(5);
       renderValue = 5;
     }

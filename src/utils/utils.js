@@ -1,6 +1,9 @@
+import { shortMoviesDuration } from './constants';
+
 const checkMovieTitle = (movie, query) => (movie.nameRU.toLowerCase().replaceAll(/["«»]/g, '').includes(query.toLowerCase())
 || (movie.nameEN && movie.nameEN.toLowerCase().replaceAll(/["«»]/g, '').includes(query.toLowerCase())));
-const checkIfIsShort = (movie) => (movie.duration <= 40);
+
+const checkIfIsShort = (movie) => (movie.duration <= shortMoviesDuration);
 
 const searchMovies = (movies, query) => {
   const queryArr = query.toLowerCase().trim();
