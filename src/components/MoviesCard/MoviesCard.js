@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import './MoviesCard.css';
-import { BASE_URL_MOVIE } from '../../utils/MovieApi';
+import { BASE_URL_MOVIE } from '../../utils/constants';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 const MoviesCard = ({
@@ -14,8 +14,6 @@ const MoviesCard = ({
 }) => {
   const currentUser = useContext(CurrentUserContext);
   const isSaved = movie.owner && movie.owner === currentUser._id;
-  console.log(movie);
-  console.log(nameRU);
   const handleSaveBtnClick = () => {
     if (isSaved) {
       deleteMovie(movie._id, movie);

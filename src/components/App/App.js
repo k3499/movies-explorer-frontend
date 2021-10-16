@@ -454,7 +454,7 @@ function App() {
           <Route exact path="/">
             <Main />
           </Route>
-          <ProtectedRoute exact path="/movies"
+          <ProtectedRoute path="/movies"
             component={Movies}
             isLoggedIn={isLoggedIn}
             movies={movies}
@@ -469,7 +469,7 @@ function App() {
             isMoreBtnVisible={isMoreBtnVisible}
             isLoading={isLoading}
             isDisabled={isLoading}/>
-          <ProtectedRoute exact path="/saved-movies"
+          <ProtectedRoute path="/saved-movies"
             component={SavedMovies}
             isLoggedIn={isLoggedIn}
             movies={savedMovies}

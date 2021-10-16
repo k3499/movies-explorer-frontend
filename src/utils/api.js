@@ -1,5 +1,4 @@
-import { BASE_URL_MOVIE } from './MovieApi';
-import { defPr } from './constants';
+import { defPr, BASE_URL_MOVIE } from './constants';
 
 class Api {
   constructor(options) {

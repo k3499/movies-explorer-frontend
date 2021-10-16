@@ -1,6 +1,6 @@
 .movies-list{
   display: grid;
-  justify-content: space-around;
+  justify-content: start;
   width: 100%;
   max-width: 1140px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 360px));

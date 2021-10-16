@@ -7,6 +7,12 @@ const movieSearchFailedMessage = 'Во время запроса произош�
 const movieInput = 'movieInput';
 const defPr = 'default';
 const loginErrorMessage = 'Почта или пароль введены не верно. Попробуйте еще раз!';
+const BASE_URL_MOVIE = 'https://api.nomoreparties.co';
+const BASE_URL = 'https://api.moviesearch.nomoredomains.club';
+const Headers = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+};
 
 export {
   shortFilmCheck,
@@ -17,4 +23,7 @@ export {
   movieSearchFailedMessage,
   defPr,
   loginErrorMessage,
+  BASE_URL_MOVIE,
+  BASE_URL,
+  Headers,
 };

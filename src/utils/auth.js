@@ -1,47 +1,48 @@
-export const BASE_URL = 'https://api.moviesearch.nomoredomains.club';
+import { BASE_URL, Headers } from './constants';
+
+function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(new Error(`Ошибка: ${res.status}`));
+}
+export const HandleOriginalResponse = (res) => {
+  if (!res.ok) {
+    return Promise.reject(new Error(`Ошибка: ${res.status}`));
+  }
+  return res.json();
+};
 
 export const register = (email, password, name) => (
   fetch(`${BASE_URL}/signup`, {
     method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
+    headers: Headers,
     body: JSON.stringify({
       email,
       password,
       name,
     }),
   })
-    .then((res) => {
-      try {
-        if (res.status === 200) {
-          return res.json();
-        }
-      } catch (err) {
-        return err;
-      }
-      return res;
-    })
+    .then(HandleOriginalResponse)
     .then((res) => res)
+    .catch((err) => console.log(err))
 );
 
 export const authorization = (email, password) => (
   fetch(`${BASE_URL}/signin`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: Headers,
     body: JSON.stringify({ email, password }),
   })
-    .then((res) => res.json())
+    .then(checkResponse)
     .then((data) => {
       if (data.token) {
         localStorage.setItem('jwt', data.token);
         return data;
       }
-      return data;
+      return console.log('нет токена');
     })
+    .catch((err) => console.log(err))
 );
 
 export const tokenCheck = (token) => (

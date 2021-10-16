@@ -102,6 +102,14 @@
   font-size: 13px;
   line-height: 1.4;
 }
+.search__container{
+  position: relative;
+}
+.search__input-error{
+  position: absolute;
+  right: 50px;
+  color: red;
+}
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .search__tumbler-container{
     padding: 30px 0 62px;
@@ -115,5 +123,8 @@
     line-height: 22px;
     color: #A0A0A0;
     text-align: left;
+  }
+  .search__input-error{
+    font-size: 13px;
   }
 }

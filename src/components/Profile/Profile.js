@@ -48,7 +48,7 @@ const Profile = ({
         <span className="profile__input-error" id="email-input-error">
               {errors && errors.email !== '' && errors.email}
         </span>
-        <button className="profile__button" disabled={!isValid}>Редактировать</button>
+        <button className="profile__button" disabled={ !isValid || isDisabled }>Редактировать</button>
         <NavLink to="/" onClick={handleLogout} className="profile__logout">Выйти из аккаунта</NavLink>
       </form>
     </section>
