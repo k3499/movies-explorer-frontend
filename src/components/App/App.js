@@ -52,6 +52,7 @@ function App() {
   const [isOnSavedPage, setIsOnSavedPage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isRegisterFailed, setIsRegisterFailed] = useState(false);
+  const [isCheckingToken, setIsCheckingToken] = useState(true);
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
@@ -120,6 +121,7 @@ function App() {
             if (res) {
               setCurrentUser({ email: res.email, name: res.name, _id: res._id });
               setIsLoggedIn(true);
+              setIsCheckingToken(false);
               history.push('/movies');
             } else {
               setIsLoggedIn(false);
@@ -471,7 +473,8 @@ function App() {
             handleMoreBtnClick={handleMoreBtnClick}
             isMoreBtnVisible={isMoreBtnVisible}
             isLoading={isLoading}
-            isDisabled={isLoading}/>
+            isDisabled={isLoading}
+            isChecking={isCheckingToken}/>
           <ProtectedRoute path="/saved-movies"
             component={SavedMovies}
             isLoggedIn={isLoggedIn}
@@ -483,14 +486,16 @@ function App() {
             isFound={isFoundInSavedMovies}
             isRequestDone={isRequestInSavedDone}
             isLoading={isLoading}
-            isDisabled={isLoading}/>
+            isDisabled={isLoading}
+            isChecking={isCheckingToken}/>
           <ProtectedRoute path="/profile"
             component={Profile}
             isLoggedIn={isLoggedIn}
             handleLogout={handleLogout}
             handleSubmit={handleEditProfile}
             isLoading={isLoading}
-            isDisabled={isLoading}/>
+            isDisabled={isLoading}
+            isChecking={isCheckingToken}/>
           <Route path="/signin">
             <Login onLogin={handleLogin}
             isDisabled={isLoading}/>
