@@ -122,7 +122,6 @@ function App() {
               setCurrentUser({ email: res.email, name: res.name, _id: res._id });
               setIsLoggedIn(true);
               setIsCheckingToken(false);
-              history.push('/movies');
             } else {
               setIsLoggedIn(false);
               history.push('/');
