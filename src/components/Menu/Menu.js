@@ -4,14 +4,16 @@ import Navigation from '../Navigation/Navigation';
 const Menu = ({
   handleMenuClose,
   isOpen,
-  handleOnMainClick,
+  handleOnSavedMoviesClick,
   handleOnMoviesClick,
+  onClick,
 }) => (
-    <section className={`menu ${isOpen && 'menu_opened'}`}>
+    <section className={`menu ${isOpen && 'menu_opened'}`} onClick={onClick}>
       <div className="menu__area">
         <button className="menu__close-btn" onClick={handleMenuClose}></button>
-        <Navigation handleOnMainClick={handleOnMainClick}
-         handleOnMoviesClick={handleOnMoviesClick}/>
+        <Navigation
+          handleOnSavedMoviesClick={handleOnSavedMoviesClick}
+          handleOnMoviesClick={handleOnMoviesClick} />
       </div>
     </section>
 );

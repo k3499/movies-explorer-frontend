@@ -2,12 +2,11 @@ import AuthForm from '../AuthForm/AuthForm';
 import './Login.css';
 
 const Login = ({
-  onLogoClick,
   onLogin,
+  isDisabled,
 }) => (
   <section className="login">
     <AuthForm
-      onLogoClick={onLogoClick}
       welcome="Рады видеть!"
       isNameVisible={false}
       button="Войти"
@@ -15,6 +14,7 @@ const Login = ({
       caption="Еще не зарегистированы? "
       route="/signup"
       navLink="Регистрация"
+      isDisabled={isDisabled}
     />
   </section>
 );
